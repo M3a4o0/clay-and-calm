@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "store"
+    label: "Store Data"
+    files:
+      - name: "products"
+        label: "Products"
+        file: "src/data/products.json"
+        format: "json"
+        fields:
+          - name: "products"
+            label: "Products"
+            widget: "list"
+            summary: "{{fields.name}} — ${{fields.price}}"
+            fields:
+              - { name: "id", label: "ID (unique)", widget: "string" }
+              - { name: "name", label: "Name", widget: "string" }
+              - { name: "price", label: "Price (number)", widget: "number", value_type: "float", min: 0 }
+              - { name: "size", label: "Size (S/M/L)", widget: "select", options: ["S","M","L"] }
+              - { name: "collection", label: "Collection", widget: "string" }
+              - { name: "inventory", label: "Inventory", widget: "number", value_type: "int", min: 0 }
+              - { name: "unique", label: "Each piece is unique", widget: "boolean", default: false }
+              - name: "images"
+                label: "Images"
+                widget: "list"
+                allow_add: true
+                field: { name: "image", label: "Image URL or Upload", widget: "image" }
+              - { name: "description", label: "Description", widget: "text" }
+              - { name: "dimensions", label: "Dimensions", widget: "string" }
+              - { name: "care", label: "Care Instructions", widget: "text" }
+              - { name: "shipping", label: "Shipping Info", widget: "text" }

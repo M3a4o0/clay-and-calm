@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth, subtle feel */
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+* { -webkit-tap-highlight-color: transparent; }
+
+/* A tiny bit of “handmade” softness */
+::selection { background: rgba(122, 162, 158, 0.25); }
